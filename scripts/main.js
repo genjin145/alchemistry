@@ -26,11 +26,11 @@ function create_card(i) {
 }
 
 show_all.onclick = function() {
+	main.innerHTML = "";
+	index = 0;
 	for (var i = 0; i < ingredient.length; i++) {
-		text += '<img src="images/ingredients/' + ingredient[i].image + '" width="150">';
-		text += "<p>" + ingredient[i].id + " " + ingredient[i].name + "</p>";
+		create_card(i);
 	}
-	test.innerHTML = text;
 }
 
 show.onclick = function() {
@@ -39,8 +39,6 @@ show.onclick = function() {
 	index = 0;
 	for (var i = 0; i < ingredient.length; i++) {
 		if (ingredient[i].effect_1 == search_effect || ingredient[i].effect_2 == search_effect || ingredient[i].effect_3 == search_effect || ingredient[i].effect_4 == search_effect) {
-			// text += '<img src="images/ingredients/' + ingredient[i].image + '" width="150">';
-			// text += "<p>" + ingredient[i].id + " " + ingredient[i].name + "</p>";
 			create_card(i);
 		}
 	}

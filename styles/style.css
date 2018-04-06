@@ -6,7 +6,7 @@
 body {
 	
 	font-family: sans-serif;
-	background-color: gray;
+	background-color: black;
 }
 
 nav, main {
@@ -58,15 +58,16 @@ main {
 
 .card th {
 	padding: 2px 5px;
+	font-size: 14px;
 	color: lightgray;
 	background-color: #151515;
 }
 
 .card td {
 	width: 125px;
-	padding: 2px 0;
+	padding: 2px;
 	text-align: center;
-	font-size: 12px;
+	font-size: 11px;
 	border-right: 1px solid gray;
 }
 
@@ -83,7 +84,7 @@ main {
 }
 
 .card img {
-	height: 150px;
+	height: 140px;
 }
 
 .card span {
@@ -91,5 +92,6 @@ main {
 }
 
 .card .active {
+	font-weight: bold;
 	color: white;
 }

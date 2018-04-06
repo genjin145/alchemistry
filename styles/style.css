@@ -4,13 +4,35 @@
 }
 
 body {
-	background-color: lightgray;
+	background-color: gray;
+}
+
+nav, main {
+	margin: 0 auto;
+	width: 960px;
+}
+
+nav {
+	margin-top: 20px;
+	padding: 5px 20px;
+
+	background-color: black;
 }
 
 main {
-	margin: 20px auto;
 	padding: 20px;
-	width: 760px;
 	
+	color: black;
 	background-color: white;
+	/*background-color: gray;*/
+}
+
+#search {
+	padding: 0 10px;
+	width: 100%;
+	line-height: 32px;
+	box-sizing: border-box;
+	color: white;
+	background-color: black;
+	border: 2px solid white;
 }

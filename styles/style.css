@@ -4,12 +4,14 @@
 }
 
 body {
+	
+	font-family: sans-serif;
 	background-color: gray;
 }
 
 nav, main {
 	margin: 0 auto;
-	width: 960px;
+	width: 1100px;
 }
 
 nav {
@@ -19,12 +21,14 @@ nav {
 	background-color: black;
 }
 
+button {
+	margin: 10px 0;
+	padding: 4px 10px;
+}
+
 main {
 	padding: 20px;
-	
-	color: black;
-	background-color: white;
-	/*background-color: gray;*/
+	background-color: black;
 }
 
 #search {
@@ -35,4 +39,57 @@ main {
 	color: white;
 	background-color: black;
 	border: 2px solid white;
+}
+
+.card {
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px 10px;
+	width: 250px;
+	color: gray;
+	/*background-color: green;*/
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.card tr {
+
+}
+
+.card th {
+	padding: 2px 5px;
+	color: lightgray;
+	background-color: #151515;
+}
+
+.card td {
+	width: 125px;
+	padding: 2px 0;
+	text-align: center;
+	font-size: 12px;
+	border-right: 1px solid gray;
+}
+
+.card tr:first-child td {
+	background-color: #151515;
+}
+
+.card tr:first-child td, .card td:last-child {
+	border: none;
+}
+
+.card tr:nth-last-child(2) td, .card tr:nth-last-child(3) td {
+	border-bottom: 1px solid gray;
+}
+
+.card img {
+	height: 150px;
+}
+
+.card span {
+	padding-left: 5px;
+}
+
+.card .active {
+	color: white;
 }

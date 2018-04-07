@@ -4,12 +4,14 @@
 }
 
 body {
-	background-color: gray;
+	
+	font-family: sans-serif;
+	background-color: black;
 }
 
 nav, main {
 	margin: 0 auto;
-	width: 960px;
+	width: 1100px;
 }
 
 nav {
@@ -19,11 +21,19 @@ nav {
 	background-color: black;
 }
 
+button {
+	margin: 10px 0;
+	padding: 4px 10px;
+}
+
 main {
 	padding: 20px;
+<<<<<<< HEAD
 	
 	color: white;
 	background-color: white;
+=======
+>>>>>>> 067d05eb8fa6b2c8fa8f304f356d0984974958e2
 	background-color: black;
 }
 
@@ -35,4 +45,59 @@ main {
 	color: white;
 	background-color: black;
 	border: 2px solid white;
+}
+
+.card {
+	display: inline-block;
+	vertical-align: top;
+	margin: 5px 10px;
+	width: 250px;
+	color: gray;
+	/*background-color: green;*/
+	table-layout: fixed;
+	border-collapse: collapse;
+}
+
+.card tr {
+
+}
+
+.card th {
+	padding: 2px 5px;
+	font-size: 14px;
+	color: lightgray;
+	background-color: #151515;
+}
+
+.card td {
+	width: 125px;
+	padding: 2px;
+	text-align: center;
+	font-size: 11px;
+	border-right: 1px solid gray;
+}
+
+.card tr:first-child td {
+	background-color: #151515;
+}
+
+.card tr:first-child td, .card td:last-child {
+	border: none;
+}
+
+.card tr:nth-last-child(2) td, .card tr:nth-last-child(3) td {
+	border-bottom: 1px solid gray;
+}
+
+.card img {
+	height: 140px;
+}
+
+.card span {
+	padding-left: 5px;
+}
+
+.card .active {
+	font-weight: bold;
+	color: white;
 }

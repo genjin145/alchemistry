@@ -104,7 +104,7 @@ main {
 }
 
 .card td:nth-child(1) span {
-	color: white;
+	color: gray;
 }
 
 .card .active {

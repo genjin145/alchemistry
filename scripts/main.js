@@ -5,10 +5,12 @@ var text = "",
 	search_effect = search.value;
 
 function create_card(i) {
-	main.innerHTML += '<table class="card"><tr><td colspan="2"><img></td></tr><tr><th colspan="2"></th></tr><tr><td>Вес<span></span></td><td>Цена<span></span></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table>';
+	main.innerHTML += '<table class="card"><tr><td colspan="2"><img></td></tr><tr><th colspan="2"></th></tr><tr><td>Вес<span></span></td><td>Цена<span></span><img src="images/Gold.png"></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table>';
 	var table = document.getElementsByTagName("table")[index],
 		name = table.getElementsByTagName("th")[0],
 		image = table.getElementsByTagName("img")[0],
+		weight = table.getElementsByTagName("span")[0],
+		value = table.getElementsByTagName("span")[1],
 		effect_1 = table.getElementsByTagName("td")[3],
 		effect_2 = table.getElementsByTagName("td")[4],
 		effect_3 = table.getElementsByTagName("td")[5],
@@ -18,6 +20,8 @@ function create_card(i) {
 	console.log(index);
 	console.log(ingredient[i].name);
 	image.src = "images/ingredients/" + ingredient[i].image;
+	value.textContent = ingredient[i].value;
+	weight.textContent = ingredient[i].weight;
 	effect_1.textContent = ingredient[i].effect_1;
 	effect_2.textContent = ingredient[i].effect_2;
 	effect_3.textContent = ingredient[i].effect_3;

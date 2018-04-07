@@ -85,12 +85,26 @@ main {
 	border-bottom: 1px solid gray;
 }
 
-.card img {
+.card img:first-child {
 	height: 140px;
+}
+
+.card td:nth-child(2) img {
+	margin-left: 5px;
+	width: 18px;
+	height: 18px;
+	vertical-align: middle;
 }
 
 .card span {
 	padding-left: 5px;
+	color: #90854B;
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+.card td:nth-child(1) span {
+	color: white;
 }
 
 .card .active {

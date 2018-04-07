@@ -22,9 +22,9 @@ nav {
 main {
 	padding: 20px;
 	
-	color: black;
+	color: white;
 	background-color: white;
-	/*background-color: gray;*/
+	background-color: black;
 }
 
 #search {

@@ -28,12 +28,8 @@ button {
 
 main {
 	padding: 20px;
-<<<<<<< HEAD
 	
 	color: white;
-	background-color: white;
-=======
->>>>>>> 067d05eb8fa6b2c8fa8f304f356d0984974958e2
 	background-color: black;
 }
 
@@ -71,7 +67,7 @@ main {
 
 .card td {
 	width: 125px;
-	padding: 2px;
+	padding: 4px;
 	text-align: center;
 	font-size: 11px;
 	border-right: 1px solid gray;

@@ -1,8 +1,30 @@
-var main =document.getElementsByTagName("main")[0];
+var main =document.getElementsByTagName("main")[0],
+    input = document.getElementsByTagName("input")[0],
+    table_effects = document.getElementsByClassName("table_effects")[0],
+	effect = table_effects.getElementsByTagName("li");
 
-var text = "",
+var effects = [],
+	text = "",
 	index = 0,
 	search_effect = search.value;
+
+function get_effects(arr) {
+	var obj = {};
+
+	for (var i = 0; i < arr.length; i++) {
+		var str = arr[i].effect_1;
+		obj[str] = true;
+		str = arr[i].effect_2;
+		obj[str] = true;
+		str = arr[i].effect_3;
+		obj[str] = true;
+		str = arr[i].effect_4;
+		obj[str] = true;
+	}
+
+	// Возвращает массив оригинальных эффектов
+	return String(Object.keys(obj)).split(",").sort();
+}
 
 function create_card(i) {
 	main.innerHTML += '<table class="card"><tr><td colspan="2"><img></td></tr><tr><th colspan="2"></th></tr><tr><td>Вес<span></span></td><td>Цена<span></span><img src="images/Gold.png"></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table>';
@@ -29,6 +51,28 @@ function create_card(i) {
 	index++;
 }
 
+input.onclick = function() {
+	table_effects.classList.toggle("show");
+}
+
+for (var i = 0; i < effect.length; i++) {
+	effect[i].addEventListener("click", function() {
+		if (this.textContent) {
+			input.value = this.textContent;
+            table_effects.classList.toggle("show");
+            search_effect = search.value;
+            main.innerHTML = "";
+            index = 0;
+            for (var i = 0; i < ingredient.length; i++) {
+                if (ingredient[i].effect_1 == search_effect || ingredient[i].effect_2 == search_effect || ingredient[i].effect_3 == search_effect || ingredient[i].effect_4 == search_effect) {
+                    create_card(i);
+                }
+            }
+            
+		}
+	})
+}
+
 show_all.onclick = function() {
 	main.innerHTML = "";
 	index = 0;
@@ -51,8 +95,5 @@ show.onclick = function() {
 // for (var j = 0; j < ingredient.length; j++) {
 // 	create_card(j);
 // }
-
-// create_card(0);
-// create_card(8);
 
 

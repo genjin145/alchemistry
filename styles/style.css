@@ -11,19 +11,75 @@ body {
 
 nav, main {
 	margin: 0 auto;
-	width: 1100px;
+	width: 1095px;
 }
 
 nav {
-	margin-top: 20px;
-	padding: 5px 20px;
-
+    margin-top: 20px;
+    width: 1135px;
 	background-color: black;
+}
+
+#search {
+	padding: 0 14px;
+	width: 100%;
+	line-height: 32px;
+	box-sizing: border-box;
+	color: white;
+	background-color: black;
+	outline: none;
+	border: 2px solid gray;
+}
+
+#search:focus {
+	border-color: lightgray;
+}
+
+.show {
+	display: block !important;
+}
+
+.table_effects {
+	position: absolute;
+	display: none;
+	width: 1135px;
+	font-size: 14px;
+	color: gray;
+	font-family: sans-serif;
+	text-align: center;
+	background-color: #1E1E1E;
+	border-bottom: 2px solid gray;
+}
+
+.table_effects .table_col {
+	display: inline-block;
+	padding: 5px 10px;
+	vertical-align: top;
+	text-align: left;
+}
+
+.table_effects ul {
+	margin: 15px 0;
+	list-style-type: none;
+}
+
+.table_effects li {
+	height: 16px;
+}
+
+.table_effects li:hover {
+	color: white;
+	cursor: pointer;
 }
 
 button {
 	margin: 10px 0;
 	padding: 4px 10px;
+	color: white;
+	background-color: gray;
+	border-radius: 3px;
+	border: none;
+	cursor: pointer;
 }
 
 main {
@@ -31,16 +87,6 @@ main {
 	
 	color: white;
 	background-color: black;
-}
-
-#search {
-	padding: 0 10px;
-	width: 100%;
-	line-height: 32px;
-	box-sizing: border-box;
-	color: white;
-	background-color: black;
-	border: 2px solid white;
 }
 
 .card {

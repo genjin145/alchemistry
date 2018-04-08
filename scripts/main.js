@@ -1,7 +1,8 @@
 var main =document.getElementsByTagName("main")[0],
     input = document.getElementsByTagName("input")[0],
     table_effects = document.getElementsByClassName("table_effects")[0],
-	effect = table_effects.getElementsByTagName("li");
+	li_effect = table_effects.getElementsByTagName("li"),
+	effect = main.getElementsByClassName("effect");
 
 var effects = [],
 	text = "",
@@ -27,7 +28,7 @@ function get_effects(arr) {
 }
 
 function create_card(i) {
-	main.innerHTML += '<table class="card"><tr><td colspan="2"><img></td></tr><tr><th colspan="2"></th></tr><tr><td>Вес<span></span></td><td>Цена<span></span><img src="images/Gold.png"></td></tr><tr><td></td><td></td></tr><tr><td></td><td></td></tr></table>';
+	main.innerHTML += '<table class="card"><tr><td colspan="2"><img></td></tr><tr><th colspan="2"></th></tr><tr><td>Вес<span></span></td><td>Цена<span></span><img src="images/Gold.png"></td></tr><tr><td class="effect"></td><td class="effect"></td></tr><tr><td class="effect"></td><td class="effect"></td></tr></table>';
 	var table = document.getElementsByTagName("table")[index],
 		name = table.getElementsByTagName("th")[0],
 		image = table.getElementsByTagName("img")[0],
@@ -55,8 +56,8 @@ input.onclick = function() {
 	table_effects.classList.toggle("show");
 }
 
-for (var i = 0; i < effect.length; i++) {
-	effect[i].addEventListener("click", function() {
+for (var i = 0; i < li_effect.length; i++) {
+	li_effect[i].addEventListener("click", function() {
 		if (this.textContent) {
 			input.value = this.textContent;
             table_effects.classList.toggle("show");
@@ -68,7 +69,11 @@ for (var i = 0; i < effect.length; i++) {
                     create_card(i);
                 }
             }
-            
+            for (var i = 0; i < effect.length; i++) {
+            	if (search_effect == effect[i].textContent) {
+            		effect[i].classList.add("active");
+            	}
+            }
 		}
 	})
 }

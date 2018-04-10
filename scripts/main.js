@@ -9,6 +9,14 @@ var effects = [],
 	index = 0,
 	search_effect = search.value;
 
+// Показать таблицу эффектов
+// при вулюченной таблице поиск идет по ней
+show_effects.addEventListener("click", function() {
+	this.classList.toggle("show_effects_active");
+	table_effects.classList.toggle("show");
+});
+
+
 function get_effects(arr) {
 	var obj = {};
 
@@ -53,7 +61,7 @@ function create_card(i) {
 }
 
 input.onclick = function() {
-	table_effects.classList.toggle("show");
+	
 }
 
 for (var i = 0; i < li_effect.length; i++) {

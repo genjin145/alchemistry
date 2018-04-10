@@ -20,6 +20,10 @@ nav {
 	background-color: black;
 }
 
+#search_wrapper {
+	position: relative;
+}
+
 #search {
 	padding: 0 14px;
 	width: 100%;
@@ -33,6 +37,25 @@ nav {
 
 #search:focus {
 	border-color: lightgray;
+}
+
+#show_effects {
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	top: -5px;
+	left: 100%;
+	width: 55px;
+	height: 52px;
+	background: url(../images/Alchemy.png) 100% 0 no-repeat;
+	background-size: auto 100%;
+	outline: none;
+	opacity: 0.7;
+	border-radius: 0;
+}
+
+#show_effects:hover {
+	opacity: 1;
 }
 
 .show {

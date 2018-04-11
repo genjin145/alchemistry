@@ -110,7 +110,6 @@ search.addEventListener("keydown", function(e) {
 // Показать таблицу эффектов
 // при вулюченной таблице поиск идет по ней
 show_effects.addEventListener("click", function() {
-	this.classList.toggle("show_effects_active");
 	table_effects.classList.toggle("show");
 });
 
@@ -155,6 +154,27 @@ function create_card(i) {
 	effect_2.textContent = ingredient[i].effect_2;
 	effect_3.textContent = ingredient[i].effect_3;
 	effect_4.textContent = ingredient[i].effect_4;
+
+	for (var i = 0; i < effect.length; i++) {
+		effect[i].addEventListener("click", function() {
+			search.value = this.textContent;
+			search_effect = search.value;
+			main.innerHTML = "";
+			index = 0;
+			for (var i = 0; i < ingredient.length; i++) {
+				if (ingredient[i].effect_1 == search_effect || ingredient[i].effect_2 == search_effect || ingredient[i].effect_3 == search_effect || ingredient[i].effect_4 == search_effect) {
+					create_card(i);
+				}
+			}
+			for (var i = 0; i < effect.length; i++) {
+            	if (search_effect == effect[i].textContent) {
+            		effect[i].classList.add("active");
+            	}
+            }
+		});
+	}
+
+
 	index++;
 }
 

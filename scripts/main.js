@@ -1,13 +1,111 @@
 var main =document.getElementsByTagName("main")[0],
     input = document.getElementsByTagName("input")[0],
+    item_seacrh = search_result.getElementsByTagName("li"),
     table_effects = document.getElementsByClassName("table_effects")[0],
 	li_effect = table_effects.getElementsByTagName("li"),
-	effect = main.getElementsByClassName("effect");
+	effect = main.getElementsByClassName("effect"),
+
+	index_item = 0,
+	result_arr_size = 0, // Длинна массива
+	result_arr = []; // Массив из результатов поиска
 
 var effects = [],
 	text = "",
 	index = 0,
 	search_effect = search.value;
+
+/* Поиск в инпуте */
+search.oninput = function() {
+	search_result.innerHTML = "";
+	result_arr = [],
+	index_item = 0;
+	// Поиск
+	for (var i = 0, j = 0; i < ingredient.length; i++) {
+		if(ingredient[i].name.toLowerCase().indexOf(this.value.toLowerCase()) != -1) {
+			result_arr[j] = ingredient[i].name;
+			j++;
+		}
+	}
+
+	if (search.value != "") {
+		search_result.classList.add("show");
+	} else {
+		search_result.classList.remove("show");
+	}
+
+	result_arr.sort();
+	// Установить максимальное кол-во выводимых элиментов
+	if (result_arr.length > 12) {
+		result_arr_size = 12;
+	} else {
+		result_arr_size = result_arr.length;
+	}
+	// Вывести графически 
+	for (var i = 0, j = 0; i < result_arr_size; i++) {
+		search_result.appendChild(document.createElement("li"));
+		item_seacrh[i].textContent = result_arr[i];
+		// Событие при клике на элимент списка
+		item_seacrh[i].addEventListener("click", function() {
+			search.value = this.textContent;
+			search.focus();
+			search_result.classList.remove("show");
+		});
+	}
+	if (result_arr.length > 0) {
+		item_seacrh[index_item].classList.add("active");
+	}
+}
+
+search.addEventListener("keydown", function(e) {
+	// Кнопка вниз
+	if (e.keyCode == 40) {
+		if (index_item > result_arr_size - 2) {
+			index_item = 0;
+		} else {
+			index_item++;	
+		}
+		this.value = item_seacrh[index_item].textContent;
+		if (result_arr.length > 1) {
+			for (var i = 0; i < result_arr_size; i++) {
+				item_seacrh[i].classList.remove("active");
+			}
+			item_seacrh[index_item].classList.add("active");
+		}
+	}
+	// Кнопка вверх
+	if (e.keyCode == 38) {
+		if (index_item < 1) {
+			index_item = result_arr_size - 1;
+		} else {
+			index_item--;	
+		}
+		this.value = item_seacrh[index_item].textContent;
+		if (result_arr.length > 1) {
+			for (var i = 0; i < result_arr_size; i++) {
+				item_seacrh[i].classList.remove("active");
+			}
+			item_seacrh[index_item].classList.add("active");
+		}
+
+	}
+	// Интер
+	if (e.keyCode == 13) {
+		if (index_item == 0) {
+			this.value = item_seacrh[index_item].textContent;
+		}
+		search_result.classList.remove("show");
+
+		search_effect = search.value;
+		main.innerHTML = "";
+		index = 0;
+		for (var i = 0; i < ingredient.length; i++) {
+			if (ingredient[i].name == search_effect) {
+				create_card(i);
+			}
+		}
+	}
+});
+/**/
 
 // Показать таблицу эффектов
 // при вулюченной таблице поиск идет по ней
@@ -58,10 +156,6 @@ function create_card(i) {
 	effect_3.textContent = ingredient[i].effect_3;
 	effect_4.textContent = ingredient[i].effect_4;
 	index++;
-}
-
-input.onclick = function() {
-	
 }
 
 for (var i = 0; i < li_effect.length; i++) {

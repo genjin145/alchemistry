@@ -17,6 +17,8 @@ nav, main {
 nav {
     margin-top: 20px;
     width: 1135px;
+    font-size: 14px;
+    font-family: sans-serif;
 	background-color: black;
 }
 
@@ -39,6 +41,36 @@ nav {
 	border-color: lightgray;
 }
 
+#search_result {
+	position: absolute;
+	display: none;
+	padding: 10px 15px;
+	width: 100%;
+	height: 280px;
+	box-sizing: border-box;
+	list-style-type: none;
+	color: gray;
+	background-color: #1E1E1E;
+	border-bottom: 2px solid gray;
+}
+
+.show {
+	display: block !important;
+}
+/* Результат поиска в инпуте */
+#search_result li {
+	padding: 2px 5px;
+}
+
+#search_result li:hover {
+	color: white;
+	cursor: pointer;
+}
+
+.active {
+	color: white;
+}
+
 #show_effects {
 	position: absolute;
 	margin: 0;
@@ -58,17 +90,11 @@ nav {
 	opacity: 1;
 }
 
-.show {
-	display: block !important;
-}
-
 .table_effects {
 	position: absolute;
 	display: none;
 	width: 1135px;
-	font-size: 14px;
 	color: gray;
-	font-family: sans-serif;
 	text-align: center;
 	background-color: #1E1E1E;
 	border-bottom: 2px solid gray;

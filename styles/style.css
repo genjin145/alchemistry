@@ -203,7 +203,7 @@ main {
 }
 
 .card .effect:hover {
-	color: white;
+	color: lightgray;
 	cursor: pointer;
 }
 

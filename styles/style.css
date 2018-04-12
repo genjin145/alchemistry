@@ -1,12 +1,25 @@
+@font-face {
+	font-family: "Yanone Kaffeesatz";
+	src: url(../fonts/YanoneKaffeesatz/YanoneKaffeesatz-Regular.ttf);
+}
+
+@font-face {
+	font-family: "Yanone Kaffeesatz";
+	src: url(../fonts/YanoneKaffeesatz/YanoneKaffeesatz-Bold.ttf);
+	font-weight: bold;
+}
+
 * {
 	margin: 0;
 	padding: 0;
+	/*font-family: sans-serif;*/
 }
 
 body {
-	
-	font-family: sans-serif;
+	font-family: "Yanone Kaffeesatz";
+	background: black url(../images/bk.jpg) no-repeat;
 	background-color: black;
+	background-size: 100%;
 }
 
 nav, main {
@@ -15,15 +28,18 @@ nav, main {
 }
 
 nav {
-    margin-top: 20px;
-    width: 1135px;
+	padding: 20px 0;
+    width: 100%;
     font-size: 14px;
-    font-family: sans-serif;
+    box-shadow: 0 0 20px 20px black;
 	background-color: black;
 }
 
 #search_wrapper {
 	position: relative;
+	margin: auto;
+
+	width: 1135px;
 }
 
 #search {
@@ -113,7 +129,8 @@ nav {
 }
 
 .table_effects li {
-	height: 16px;
+	height: 18px;
+	font-size: 18px;
 }
 
 .table_effects li:hover {
@@ -132,10 +149,9 @@ button {
 }
 
 main {
-	padding: 20px;
-	
+	padding: 0 20px 20px 20px;
 	color: white;
-	background-color: black;
+	background-color: rgba(0, 0, 0, 0.9);
 }
 
 .card {
@@ -144,7 +160,6 @@ main {
 	margin: 5px 10px;
 	width: 250px;
 	color: gray;
-	/*background-color: green;*/
 	table-layout: fixed;
 	border-collapse: collapse;
 }
@@ -155,7 +170,8 @@ main {
 
 .card th {
 	padding: 2px 5px;
-	font-size: 14px;
+	font-size: 18px;
+	letter-spacing: 0.02em;
 	color: lightgray;
 	background-color: #151515;
 }
@@ -164,7 +180,8 @@ main {
 	width: 125px;
 	padding: 4px;
 	text-align: center;
-	font-size: 11px;
+	font-size: 13px;
+	letter-spacing: 0.02em;
 	border-right: 1px solid gray;
 }
 
@@ -208,6 +225,6 @@ main {
 }
 
 .card .active {
-	font-weight: bold;
+	/*font-weight: 500;*/
 	color: white;
 }

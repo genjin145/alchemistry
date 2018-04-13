@@ -56,6 +56,10 @@ input.onclick = function() {
 	table_effects.classList.toggle("show");
 }
 
+document.getElementsByTagName("body")[0].onclick = function() {
+	table_effects.classList.remove("show");
+}
+
 for (var i = 0; i < li_effect.length; i++) {
 	li_effect[i].addEventListener("click", function() {
 		if (this.textContent) {

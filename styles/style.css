@@ -39,6 +39,10 @@ nav {
 	display: block !important;
 }
 
+.active {
+	color: white;
+}
+
 .table_effects {
 	position: absolute;
 	display: none;
@@ -155,5 +159,4 @@ main {
 
 .card .active {
 	font-weight: bold;
-	color: white;
 }

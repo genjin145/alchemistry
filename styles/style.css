@@ -20,6 +20,7 @@ body {
 	background: black url(../images/bk.jpg) 0 50px no-repeat;
 	background-color: black;
 	background-size: 100%;
+    background-attachment: fixed;
 }
 
 nav, main {

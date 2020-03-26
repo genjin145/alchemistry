@@ -2,17 +2,19 @@ var main =document.getElementsByTagName("main")[0],
     input = document.getElementsByTagName("input")[0],
     item_seacrh = search_result.getElementsByTagName("li"),
     table_effects = document.getElementsByClassName("table_effects")[0],
-	li_effect = table_effects.getElementsByTagName("li"),
-	effect = main.getElementsByClassName("effect"),
+    li_effect = table_effects.getElementsByTagName("li"),
+    effect = main.getElementsByClassName("effect"),
 
-	index_item = 0,
-	result_arr_size = 0, // Длинна массива
-	result_arr = []; // Массив из результатов поиска
+    index_item = 0,
+    result_arr_size = 0, // Длинна массива
+    result_arr = []; // Массив из результатов поиска
 
 var effects = [],
-	text = "",
-	index = 0,
-	search_effect = search.value;
+    text = "",
+    index = 0,
+    search_effect = search.value;
+
+var result_searchs = []; // Результаты поиска
 
 /* Поиск в инпуте */
 search.oninput = function() {
@@ -38,11 +40,11 @@ search.oninput = function() {
 	}
 	/* Живой поиск */
 
-	// if (search.value != "") {
-	// 	search_result.classList.add("show");
-	// } else {
-	// 	search_result.classList.remove("show");
-	// }
+	if (search.value != "") {
+		search_result.classList.add("show");
+	} else {
+		search_result.classList.remove("show");
+	}
 
 	// Установить максимальное кол-во выводимых элиментов
 	if (result_arr.length > 12) {
@@ -175,11 +177,12 @@ function push_effect() {
 }
 
 function create_cards(input_value, arr) {
-	var result_searchs = [], // Результаты поиска
-		arr_effects = get_effects(arr), // Массив эффектов
-		search_in, // Искать в ингридиентах или в эффектах
+let arr_effects = get_effects(arr), // Массив эффектов
+    search_in, // Искать в ингридиентах или в эффектах
 
-		text_card = "";
+    text_card = "";
+
+result_searchs = []
 
 	// Посмотрим значение в ингридиентах
 	for (var i = 0; i < arr.length; i++) {
@@ -234,6 +237,8 @@ function create_cards(input_value, arr) {
 }
 
 show_all.onclick = function() {
+result_searchs = ingredient.slice();
+
 	var text_card = "";
 	for (var i = 0; i < ingredient.length; i++) {
 		text_card += draw_card(i, ingredient);
@@ -252,3 +257,29 @@ for (var i = 0; i < li_effect.length; i++) {
 		}
 	})
 }
+
+sort_price.addEventListener("click", function() {
+  let text_card = "";
+
+  if (this.classList.contains("price_from_more")) {
+    this.innerHTML = "по цене &uarr;"
+
+    result_searchs.sort(function(a, b) {
+      return b.value - a.value;
+    });
+  } else {
+    this.innerHTML = "по цене &darr;"
+
+    result_searchs.sort(function(a, b) {
+      return a.value - b.value;
+    });
+  }
+
+  this.classList.toggle("price_from_more");
+
+  for (var i = 0; i < result_searchs.length; i++) {
+    text_card += draw_card(i, result_searchs);
+  }
+
+  main.innerHTML = text_card;
+});
